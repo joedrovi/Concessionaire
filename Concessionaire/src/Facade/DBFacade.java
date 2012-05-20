@@ -1,14 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Facade;
 
 import java.sql.*;
 
 /**
  *
- * @author maxbernal
+ * @author Jose Bernal
  */
 public class DBFacade {
     String url, usuario, password;
