@@ -4,10 +4,7 @@
  */
 package Facade;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  *
@@ -28,22 +25,19 @@ public class DBFacade {
     public Connection open(){
         try {
             Class.forName("org.postgresql.Driver");
-        }
-        catch( Exception e ) {
+        } 
+        catch (ClassNotFoundException ex) {
             System.out.println( "Error: Cannot charge the driver" );
         }
-
-        try{
-
-        conexion = DriverManager.getConnection(url, usuario, password);
-        System.out.println( "Open connection" );
-        return conexion;
-        //Crear objeto Statement para realizar queries a la base de datos
+        
+        try {
+            conexion = DriverManager.getConnection(url, usuario, password);
+            return conexion;
         } 
-        catch( Exception e ) {
-            System.out.println( "Error: cannot connect db" );
+        catch (SQLException ex) {
+            System.out.println( "Error: Cannot connect db" );
             return null;
-        }
+        }        
     }
 
     public void close(Connection c){
