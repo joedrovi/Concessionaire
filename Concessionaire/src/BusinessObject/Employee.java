@@ -10,12 +10,20 @@ package BusinessObject;
  */
 public class Employee {
     
-    private String id,nombre,telefono,email,cargo,direccion;
+    private String id,password,nombre,telefono,email,cargo,direccion;
     private char genero;
     private double salario;
 
     public String getCargo() {
         return cargo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setCargo(String cargo) {
