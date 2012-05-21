@@ -13,7 +13,7 @@ public class DBFacade {
     Statement instruccion;
     ResultSet tabla;
         
-    DBFacade(){
+    public DBFacade(){
         url="jdbc:postgresql://localhost:5432/joseabm";
         usuario="joseabm";
         password="joseabm";
