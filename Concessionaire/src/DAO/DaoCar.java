@@ -3,7 +3,7 @@ package DAO;
 import Facade.DBFacade;
 import BusinessObject.Car;
 import java.sql.*;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  *
@@ -50,14 +50,14 @@ public class DaoCar {
         }
     }
     
-    public LinkedList<Car> search(String marca){
+    public ArrayList search(String marca){
         
         String querry="SELECT * FROM vehiculo WHERE marca LIKE"+marca+";";
         ResultSet table;
         try{
             table=stm.executeQuery(querry);
             
-            LinkedList <Car> res=new LinkedList<Car>();
+            ArrayList res=new ArrayList();
             
             System.out.println("Marca");
             
