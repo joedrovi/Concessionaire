@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  *
@@ -52,14 +52,14 @@ public class DaoClient {
         }
     }
     
-    public LinkedList<Client> search(String nombre){
+    public ArrayList<Client> search(String nombre){
         
         String query = "SELECT * FROM cliente WHERE nombre LIKE "+nombre+";";
         ResultSet table;
         try {
             table = stm.executeQuery(query);
             
-            LinkedList<Client> res = new LinkedList<Client>();
+            ArrayList<Client> res = new ArrayList<Client>();
         
             System.out.println("Nombre");
         
