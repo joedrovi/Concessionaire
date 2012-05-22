@@ -9,7 +9,6 @@ public class Bill {
     Employee emp;
     Car car;
     Client client;
-    Fee[] fees;
     String payType;
     String date;
     double cost;
@@ -34,10 +33,6 @@ public class Bill {
         return emp;
     }
 
-    public Fee[] getFees() {
-        return fees;
-    }
-
     public String getPayType() {
         return payType;
     }
@@ -60,10 +55,6 @@ public class Bill {
 
     public void setEmp(Employee emp) {
         this.emp = emp;
-    }
-
-    public void setFees(Fee[] fees) {
-        this.fees = fees;
     }
 
     public void setPayType(String payType) {
