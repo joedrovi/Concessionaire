@@ -9,7 +9,7 @@ package BusinessObject;
  * @author Chavelo
  */
 public class Accesory {
-    private String serial, tipo;
+    private String serial, tipo, descripcion, proveedor;
     private double costo;
 
     public double getCosto() {
@@ -18,6 +18,22 @@ public class Accesory {
 
     public void setCosto(double costo) {
         this.costo = costo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
 
     public String getSerial() {
