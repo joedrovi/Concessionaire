@@ -1,11 +1,14 @@
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package BusinessObject;
 
 /**
  *
  * @author Jose Bernal
  */
-public class Bill {
+public class Quotation { 
     Employee emp;
     Car car;
     Client client;
@@ -13,34 +16,6 @@ public class Bill {
     String payType;
     String date;
     double cost;
-
-    public Car getCar() {
-        return car;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public double getCost() {
-        return cost;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public Employee getEmp() {
-        return emp;
-    }
-
-    public Fee[] getFees() {
-        return fees;
-    }
-
-    public String getPayType() {
-        return payType;
-    }
 
     public void setCar(Car car) {
         this.car = car;
@@ -69,5 +44,32 @@ public class Bill {
     public void setPayType(String payType) {
         this.payType = payType;
     }
-    
+
+    public Car getCar() {
+        return car;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public Employee getEmp() {
+        return emp;
+    }
+
+    public Fee[] getFees() {
+        return fees;
+    }
+
+    public String getPayType() {
+        return payType;
+    }
 }
