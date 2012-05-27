@@ -9,7 +9,6 @@ package DAO;
  * @author Chavelo
  */
 
-import BusinessObject.Client;
 import BusinessObject.Employee;
 import Facade.DBFacade;
 import java.sql.Connection;
