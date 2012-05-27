@@ -3,6 +3,7 @@ package GUI;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import org.icepdf.ri.common.*;
 
 public class VentanaInforme extends JInternalFrame implements ActionListener {
     private Container contenedor;
@@ -10,6 +11,18 @@ public class VentanaInforme extends JInternalFrame implements ActionListener {
     public VentanaInforme() {
         super("Informe", false, true, false);
         
+        
+        String filePath="C:/Users/Chavelo/Desktop/BD-DISENO2012.pdf";
+        
+        SwingController controlador=new SwingController();
+        SwingViewBuilder construye=new SwingViewBuilder(controlador);
+        JPanel ContieneVisualizador=construye.buildViewerPanel();
+        
+        this.getContentPane().add(ContieneVisualizador);
+        
+        controlador.openDocument(filePath);
+        
+        /*
         contenedor = getContentPane();
         contenedor.setLayout(new BorderLayout());
         
@@ -25,6 +38,8 @@ public class VentanaInforme extends JInternalFrame implements ActionListener {
         JPanel panelPrueba = new JPanel();
         panelPrueba.add(new JLabel(new ImageIcon("Imagen1.png")));
         contenedor.add(panelPrueba, BorderLayout.CENTER);
+        * 
+        */
         
         setSize(400,500);
         setVisible(true);
