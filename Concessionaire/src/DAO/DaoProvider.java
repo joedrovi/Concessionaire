@@ -55,7 +55,7 @@ public class DaoProvider
                 p.getRazonSocial() +  "', '" +                
                 p.getTelefono() + ", '"  +
                 p.getDireccion() + "', "  +
-                p.getEmail() + ")";
+                p.getEmail() + "')";
         try 
         {
             stm.executeUpdate(query);
