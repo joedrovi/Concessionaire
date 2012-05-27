@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -54,14 +56,12 @@ public class DaoClient {
     
     public ArrayList<Client> search(String nombre){
         
-        String query = "SELECT * FROM cliente WHERE nombre LIKE "+nombre+";";
+        String query = "SELECT * FROM cliente WHERE nombre LIKE '"+nombre+"';";
         ResultSet table;
         try {
             table = stm.executeQuery(query);
             
             ArrayList<Client> res = new ArrayList<Client>();
-        
-            System.out.println("Nombre");
         
             while(table.next()){
                 Client c = new Client();
@@ -82,5 +82,12 @@ public class DaoClient {
         }
     }
     
-    
+    public void delete(String nombre){
+        String query = "DELETE FROM cliente WHERE nombre = '"+nombre+"';";
+        try {
+            stm.executeQuery(query);
+        } catch (SQLException ex) {
+            System.out.println("Error: cannot execute query");
+        }
+    }
 }
