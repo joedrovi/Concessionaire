@@ -6,7 +6,7 @@ package DAO;
 
 /**
  *
- * @author Chavelo
+ * @author Joedrovi
  */
 
 import BusinessObject.Employee;
