@@ -10,8 +10,7 @@ package BusinessObject;
  */
 public class Employee {
     
-    private String id,password,nombre,telefono,email,cargo,direccion;
-    private char genero;
+    private String id,password,nombre,telefono,email,cargo,direccion, genero;
     private double salario;
 
     public String getCargo() {
@@ -46,11 +45,11 @@ public class Employee {
         this.email = email;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
