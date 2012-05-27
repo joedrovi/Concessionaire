@@ -6,7 +6,6 @@ package GUI;
 
 import BusinessObject.Proveedor;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JTable;
 
 /**
@@ -27,7 +26,7 @@ public class TablaProveedor extends JTable {
         else {
             datos = new Object[listaProveedores.size()][cabeceras.length];
             
-            for(int i = 0 ; i < listaProveedores.size() ; i++ ) {
+            for( int i = 0 ; i < listaProveedores.size() ; i++ ) {
                 Proveedor p = listaProveedores.get(i);
 
                 datos[i][0] = p.getNit();
