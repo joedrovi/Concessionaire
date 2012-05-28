@@ -41,7 +41,7 @@ public class ControladorProveedor {
         return listaProveedores;
     }
     
-    public void eliminar(String razonSocial) {
-        daoProveedor.eliminar(razonSocial);
+    public void eliminar(String nit) {
+        daoProveedor.eliminar(nit);
     }
 }
