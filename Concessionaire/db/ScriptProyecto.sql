@@ -68,9 +68,9 @@ DROP TABlE tipo_servicio CASCADE;
 
 CREATE TABLE tipo_servicio (
     id_serv CHAR(15),
+    descripcion_serv VARCHAR(1000) NOT NULL,    
+    duracion_serv NUMERIC NOT NULL,    
     costo_serv NUMERIC NOT NULL,
-    duracion_serv NUMERIC NOT NULL,
-    descripcion_serv VARCHAR(1000) NOT NULL,
     PRIMARY KEY (id_serv)
 );
 
