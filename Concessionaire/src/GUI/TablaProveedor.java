@@ -21,7 +21,7 @@ public class TablaProveedor extends JTable {
     public TablaProveedor(ArrayList<Proveedor> listaProveedores) {
         
         if( listaProveedores.isEmpty() ) {
-            datos = new Object[][]{{}};
+            datos = new Object[0][0];
         }
         else {
             datos = new Object[listaProveedores.size()][cabeceras.length];
