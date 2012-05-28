@@ -8,8 +8,9 @@ package BusinessObject;
  *
  * @author claito
  */
-public class TypeOfService {
-    private String id, descripcion;
+public class TipoServicio {
+    private String id;
+    private String descripcion;
     private int duracion;
     private double costo;
 
