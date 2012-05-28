@@ -14,6 +14,20 @@ public class TipoServicio {
     private int duracion;
     private double costo;
 
+    public TipoServicio() {
+        id = "";
+        descripcion = "";
+        duracion = 0;
+        costo = 0.0;
+    }
+
+    public TipoServicio(String id, String descripcion, int duracion, double costo) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.duracion = duracion;
+        this.costo = costo;
+    }   
+
     public double getCosto() {
         return costo;
     }
