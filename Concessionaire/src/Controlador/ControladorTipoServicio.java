@@ -43,4 +43,9 @@ public class ControladorTipoServicio {
     public void eliminar(String id) {
         daoTipoServicio.eliminar(id);
     }
+    
+    public boolean existe(String nit) {
+        boolean value = daoTipoServicio.existe(nit);
+        return value;
+    }
 }

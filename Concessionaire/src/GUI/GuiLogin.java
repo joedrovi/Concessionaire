@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class GUILogin extends JFrame implements ActionListener {   
+public class GuiLogin extends JFrame implements ActionListener {   
     private Container contenedor;
     
     private JTextField txtUsuario;
@@ -12,7 +12,7 @@ public class GUILogin extends JFrame implements ActionListener {
     
     private JButton btnAceptar;
     
-    public GUILogin() {     
+    public GuiLogin() {     
         super("Inicio de Sesión");
         
         contenedor = getContentPane();        
@@ -61,9 +61,5 @@ public class GUILogin extends JFrame implements ActionListener {
     
     public void actionPerformed(ActionEvent e) {
         validarDatos();
-    }
-    
-    public static void main(String[] args) {
-        GUILogin vl = new GUILogin();
     }
 }

@@ -16,7 +16,7 @@ import javax.swing.border.Border;
  *
  * @author claito
  */
-public class GUIAdminProveedor extends JInternalFrame implements ActionListener {
+public class GuiAdminProveedor extends JInternalFrame implements ActionListener {
     private Container contenedor;
     private TablaProveedor tablaProveedor;
     
@@ -25,7 +25,7 @@ public class GUIAdminProveedor extends JInternalFrame implements ActionListener 
     private JButton btnConsultar;
     private JButton btnEliminar;
 
-    public GUIAdminProveedor() {
+    public GuiAdminProveedor() {
         super("Administrar Proveedores", false, true, false);
         JDialog.setDefaultLookAndFeelDecorated(true);
         
@@ -92,7 +92,7 @@ public class GUIAdminProveedor extends JInternalFrame implements ActionListener 
 
     public void actionPerformed(ActionEvent e) {
         if( e.getSource() == btnInsertar ) {
-            GUIFormProveedor formProveedor = new GUIFormProveedor();
+            GuiFormProveedor formProveedor = new GuiFormProveedor();
         }
         
         if( e.getSource() == btnEliminar ) {

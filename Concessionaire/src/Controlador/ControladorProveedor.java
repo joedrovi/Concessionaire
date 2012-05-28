@@ -44,4 +44,9 @@ public class ControladorProveedor {
     public void eliminar(String nit) {
         daoProveedor.eliminar(nit);
     }
+    
+    public boolean existe(String nit) {
+        boolean value = daoProveedor.existe(nit);
+        return value;
+    }
 }

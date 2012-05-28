@@ -4,6 +4,8 @@
  */
 package concessionaire;
 
+import GUI.*;
+
 /**
  *
  * @author maxbernal
@@ -14,6 +16,6 @@ public class Concessionaire {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola Mundo");
+        VentanaPrincipal vp = new VentanaPrincipal(0,"pepe","Gerente"); 
     }
 }

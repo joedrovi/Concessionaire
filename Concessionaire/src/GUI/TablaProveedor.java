@@ -18,8 +18,7 @@ public class TablaProveedor extends JTable {
     private Object[][] datos;
     private final String[] cabeceras = new String[] {"NIT", "Razón Social", "Teléfono", "Dirección", "E-mail"};
     
-    public TablaProveedor(ArrayList<Proveedor> listaProveedores) {
-        
+    public TablaProveedor(ArrayList<Proveedor> listaProveedores) {        
         if( listaProveedores.isEmpty() ) {
             datos = new Object[0][0];
         }

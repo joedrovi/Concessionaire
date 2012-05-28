@@ -129,5 +129,26 @@ public class DaoProveedor {
         }
 
         cerrarConexion();
-    }    
+    }
+    
+    public boolean existe(String nit) {
+        abrirConexion();
+        
+        String query = "SELECT * FROM proveedor WHERE nit_prov LIKE '" + nit + "'";
+        
+        try {
+            ResultSet resultado = instruccion.executeQuery(query);
+            
+            if( resultado.next() ) {
+                cerrarConexion();
+                return true;
+            }
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+
+        cerrarConexion();
+        return false;
+    }
 }

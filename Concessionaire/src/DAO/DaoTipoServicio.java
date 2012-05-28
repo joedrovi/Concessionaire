@@ -129,4 +129,25 @@ public class DaoTipoServicio {
 
         cerrarConexion();
     } 
+    
+    public boolean existe(String id) {
+        abrirConexion();
+        
+        String query = "SELECT * FROM tipo_servicio WHERE id_serv LIKE '" + id + "'";
+        
+        try {
+            ResultSet resultado = instruccion.executeQuery(query);
+            
+            if( resultado.next() ) {
+                cerrarConexion();
+                return true;
+            }
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+
+        cerrarConexion();
+        return false;
+    }
 }
