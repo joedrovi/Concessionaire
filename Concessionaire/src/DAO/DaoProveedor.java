@@ -39,11 +39,13 @@ public class DaoProveedor {
     }
     
      public void insertar(Proveedor p) {
+        abrirConexion();
+        
         String query = "INSERT INTO proveedor VALUES ('" +
                         p.getNit() + "', '" +
                         p.getRazonSocial() +  "', '" +                
-                        p.getTelefono() + ", '"  +
-                        p.getDireccion() + "', "  +
+                        p.getTelefono() + "', '"  +
+                        p.getDireccion() + "', '"  +
                         p.getEmail() + "')";
         
         try {
@@ -52,14 +54,18 @@ public class DaoProveedor {
         catch (SQLException e) {
             System.out.println(e);
         }
+        
+        cerrarConexion();
     }
      
      public ArrayList<Proveedor> listar() {
+         abrirConexion();
+         
          String query = "SELECT * FROM proveedor";
          ArrayList<Proveedor> resultado = new ArrayList<Proveedor>();
          
          try {
-             ResultSet tabla = instruccion.executeQuery(query);             
+             ResultSet tabla = instruccion.executeQuery(query);
              
              while(tabla.next()) {
                 Proveedor p = new Proveedor();
@@ -77,10 +83,13 @@ public class DaoProveedor {
              System.out.println(e);
          }
          
+         cerrarConexion();
          return resultado;
      }
      
-     public ArrayList<Proveedor> consultar(String razonSocial) {        
+     public ArrayList<Proveedor> consultar(String razonSocial) {
+        abrirConexion();
+         
         String query = "SELECT * FROM proveedor WHERE razon_social_prov LIKE '%" + razonSocial + "'%";
         ArrayList<Proveedor> resultado = new ArrayList<Proveedor>();
         
@@ -103,11 +112,14 @@ public class DaoProveedor {
             System.out.println(e);
         }
         
+        cerrarConexion();
         return resultado;
      }
      
-     public void eliminar(String razonSocial) {
-         String query = "DELETE FROM proveedor WHERE razon_social_prov LIKE '" + razonSocial + "'";
+     public void eliminar(String nit) {
+         abrirConexion();
+         
+         String query = "DELETE FROM proveedor WHERE nit_prov LIKE '" + nit + "'";
          
          try {
              instruccion.executeUpdate(query);
@@ -115,5 +127,7 @@ public class DaoProveedor {
          catch(SQLException e) {
              System.out.println(e);
          }
+         
+         cerrarConexion();
      }    
 }
