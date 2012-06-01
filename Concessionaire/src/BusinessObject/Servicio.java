@@ -8,20 +8,20 @@ package BusinessObject;
  *
  * @author claito
  */
-public class TipoServicio {
+public class Servicio {
     private String id;
     private String descripcion;
     private int duracion;
     private double costo;
 
-    public TipoServicio() {
+    public Servicio() {
         id = "";
         descripcion = "";
         duracion = 0;
         costo = 0.0;
     }
 
-    public TipoServicio(String id, String descripcion, int duracion, double costo) {
+    public Servicio(String id, String descripcion, int duracion, double costo) {
         this.id = id;
         this.descripcion = descripcion;
         this.duracion = duracion;

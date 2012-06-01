@@ -4,21 +4,22 @@
  */
 package GUI;
 
-import BusinessObject.TipoServicio;
+import BusinessObject.Servicio;
 import java.util.ArrayList;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 
 /**
  *
  * @author claito
  */
-public class TablaTipoServicio extends JTable {
+public class TablaServicio extends JTable {
     private ModeloTabla modeloTabla;
     
     private Object[][] datos;
     private final String[] cabeceras = new String[] {"ID", "Descripción", "Duración", "Costo"};
      
-    public TablaTipoServicio(ArrayList<TipoServicio> listaServicios) {
+    public TablaServicio(ArrayList<Servicio> listaServicios) {
         if( listaServicios.isEmpty() ) {
             datos = new Object[0][0];
         }
@@ -26,7 +27,7 @@ public class TablaTipoServicio extends JTable {
             datos = new Object[listaServicios.size()][cabeceras.length];
             
             for( int i = 0 ; i < listaServicios.size() ; i++ ) {
-                TipoServicio tp = listaServicios.get(i);
+                Servicio tp = listaServicios.get(i);
 
                 datos[i][0] = tp.getId();
                 datos[i][1] = tp.getDescripcion();
@@ -39,5 +40,6 @@ public class TablaTipoServicio extends JTable {
         setModel(modeloTabla);
         
         getTableHeader().setReorderingAllowed(false);
+        setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 }

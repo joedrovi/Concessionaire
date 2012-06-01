@@ -1,25 +1,28 @@
 
-package Facade;
+package Fachada;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
  * @author Jose Bernal
  */
-public class DBFacade {
-    String url, usuario, password;
-    Connection conexion;
-    Statement instruccion;
-    ResultSet tabla;
+public class BDFachada {
+    private String url;
+    private String usuario;
+    private String password;
+    
+    private Connection conexion;
         
-    public DBFacade(){
+    public BDFachada(){
         url="jdbc:postgresql://localhost:5432/joseabm";
         usuario="joseabm";
         password="joseabm";
     }
 
-    public Connection open(){
+    public Connection abrirConexion(){
         try {
             Class.forName("org.postgresql.Driver");
         } 
@@ -32,17 +35,17 @@ public class DBFacade {
             return conexion;
         } 
         catch (SQLException ex) {
-            System.out.println( "Error: Cannot connect db" );
+            System.out.println(ex);
             return null;
         }        
     }
 
-    public void close(Connection c){
+    public void cerrarConexion(Connection c){
         try{
             c.close();
         } 
-        catch( Exception e ) {
-            System.out.println( "Error: cannot close db connection" );
+        catch( Exception ex ) {
+            System.out.println(ex);
         }
     }
 }
