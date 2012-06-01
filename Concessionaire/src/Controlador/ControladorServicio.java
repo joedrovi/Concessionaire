@@ -5,7 +5,7 @@
 package Controlador;
 
 import BusinessObject.Servicio;
-import DAO.DaoServicio;
+import DataAccessObject.DaoServicio;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +13,10 @@ import java.util.ArrayList;
  * @author claito
  */
 public class ControladorServicio {
-    private DaoServicio daoTipoServicio;
+    private DaoServicio daoServicio;
     
     public ControladorServicio() {
-        daoTipoServicio = new DaoServicio();
+        daoServicio = new DaoServicio();
     }
     
     public boolean insertar(String id, String descripcion, int duracion, double costo) {
@@ -27,8 +27,7 @@ public class ControladorServicio {
         s.setDuracion(duracion);
         s.setCosto(costo);
         
-        boolean opExitosa = daoTipoServicio.insertar(s);
-        return opExitosa;
+        return daoServicio.insertar(s);
     }
     
     public boolean modificar(String id, String descripcion, int duracion, double costo) {
@@ -39,17 +38,16 @@ public class ControladorServicio {
         s.setDuracion(duracion);
         s.setCosto(costo);
         
-        boolean opExitosa = daoTipoServicio.modificar(s);
-        return opExitosa;        
+        return daoServicio.modificar(s);   
     }
     
     public ArrayList<Servicio> listar() {
-        ArrayList<Servicio> listaServicios = daoTipoServicio.listar();
+        ArrayList<Servicio> listaServicios = daoServicio.listar();
         return listaServicios;
     }
     
     public ArrayList<Servicio> filtrar(int opcion, String palabraClave) {
-        ArrayList<Servicio> listaServicios = daoTipoServicio.filtrar(opcion, palabraClave);
+        ArrayList<Servicio> listaServicios = daoServicio.filtrar(opcion, palabraClave);
         return listaServicios;
     }
     
@@ -57,15 +55,13 @@ public class ControladorServicio {
         Servicio s = new Servicio();
         s.setId(id);
         
-        boolean opExitosa = daoTipoServicio.eliminar(s);
-        return opExitosa;
+        return daoServicio.eliminar(s);
     }
     
     public boolean existe(String id) {
         Servicio s = new Servicio();
         s.setId(id);
         
-        boolean value = daoTipoServicio.existe(s);
-        return value;
+        return daoServicio.existe(s);
     }
 }

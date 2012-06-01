@@ -4,34 +4,33 @@
  */
 package GUI;
 
-import BusinessObject.Servicio;
-import Controlador.ControladorServicio;
+import BusinessObject.Empleado;
+import Controlador.ControladorEmpleado;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 /**
  *
  * @author claito
  */
-public class GuiAdminServicio extends GuiAdministrar implements ActionListener, WindowListener {
-    private TablaServicio tablaServicio;    
-    private ControladorServicio controlador;    
-    private GuiInsertarServicio guiInsertar;
-    private GuiModificarServicio guiModificar;
+public class GuiAdminEmpleado extends GuiAdministrar implements ActionListener, WindowListener {
+    private TablaEmpleado tablaEmpleado;
+    private ControladorEmpleado controlador;
+    private GuiInsertarEmpleado guiInsertar;
+    private GuiModificarEmpleado guiModificar;
     
-    public GuiAdminServicio() {
+    public GuiAdminEmpleado() {
         super();
-        setTitle("Administrar Servicios");
+        setTitle("Administrar Empleados");
         
         btnInsertar.addActionListener(this);
         btnModificar.addActionListener(this);
         btnConsultar.addActionListener(this);
         btnEliminar.addActionListener(this);        
         
-        controlador = new ControladorServicio();
+        controlador = new ControladorEmpleado();
         
         setPanelFormulario();
         setTabla();
@@ -51,7 +50,7 @@ public class GuiAdminServicio extends GuiAdministrar implements ActionListener, 
         
         panel.setLayout(layout);
         
-        jcbCriterio = new JComboBox(new String[]{"ID", "Descripción"});
+        jcbCriterio = new JComboBox(new String[]{"ID", "Nombre", "Género", "Cargo"});
         panel.add(jcbCriterio, BorderLayout.WEST);
         
         txtPalabraClave = new JTextArea();
@@ -66,57 +65,57 @@ public class GuiAdminServicio extends GuiAdministrar implements ActionListener, 
     }
     
     private void setTabla() {
-        ArrayList<Servicio> listaServicios = controlador.listar();
+        ArrayList<Empleado> listaEmpleados = controlador.listar();
         
-        tablaServicio = new TablaServicio(listaServicios);
-        JScrollPane scroll = new JScrollPane(tablaServicio);
+        tablaEmpleado = new TablaEmpleado(listaEmpleados);
+        JScrollPane scroll = new JScrollPane(tablaEmpleado);
         
         contenedor.add(scroll, BorderLayout.CENTER);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         if( ae.getSource() == btnInsertar ) {
-            guiInsertar = new GuiInsertarServicio();
-            guiInsertar.addWindowListener(this);            
+            guiInsertar = new GuiInsertarEmpleado();
+            guiInsertar.addWindowListener(this);
         }
-
+        
         if( ae.getSource() == btnModificar ) {
-            if( validarSeleccion(tablaServicio) ) {
-                int row = tablaServicio.getSelectedRow();
+            if( validarSeleccion(tablaEmpleado) ) {
+                int row = tablaEmpleado.getSelectedRow();
 
-                String[] datos = new String[4];
+                String[] datos = new String[8];
 
                 for( int col = 0 ; col < datos.length ; col++ ) {
-                    datos[col] = tablaServicio.getValueAt(row, col).toString();
+                    datos[col] = tablaEmpleado.getValueAt(row, col).toString();
                 }
 
-                guiModificar = new GuiModificarServicio(datos);
-                guiModificar.addWindowListener(this);  
+                guiModificar = new GuiModificarEmpleado(datos);
+                guiModificar.addWindowListener(this);
             }
         }
-
+        
         if( ae.getSource() == btnEliminar ) {
-            if( validarSeleccion(tablaServicio) ) {
-                int row = tablaServicio.getSelectedRow();
+            if( validarSeleccion(tablaEmpleado) ) {
+                int row = tablaEmpleado.getSelectedRow();
                 int col = 0;
 
-                String id = tablaServicio.getValueAt(row, col).toString();
+                String id = tablaEmpleado.getValueAt(row, col).toString();
 
-                int opcion = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar el servicio " + id + "?", "Eliminar servicio", JOptionPane.OK_CANCEL_OPTION);
+                int opcion = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar el empleado " + id + "?", "Eliminar empleado", JOptionPane.OK_CANCEL_OPTION);
 
                 if( opcion == JOptionPane.OK_OPTION ) {
                     if( controlador.eliminar(id) )
-                        JOptionPane.showMessageDialog(this, "El servicio " + id + " ha sido eliminado.", "Eliminar servicio", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El empleado " + id + " ha sido eliminado.", "Eliminar empleado", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
         
         if( ae.getSource() == btnListar) {
-            ArrayList<Servicio> listaServicios = controlador.listar();
+            ArrayList<Empleado> listaEmpleados = controlador.listar();
         }
     }
-
+    
     @Override
     public void windowOpened(WindowEvent we) {        
     }

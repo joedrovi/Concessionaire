@@ -17,9 +17,9 @@ public class BDFachada {
     private Connection conexion;
         
     public BDFachada(){
-        url="jdbc:postgresql://localhost:5432/joseabm";
-        usuario="joseabm";
-        password="joseabm";
+        url="jdbc:postgresql://localhost:5432/mariacsg";
+        usuario="mariacsg";
+        password="mariacsg";
     }
 
     public Connection abrirConexion(){

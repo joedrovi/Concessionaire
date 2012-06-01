@@ -14,7 +14,7 @@ public class Servicio {
     private int duracion;
     private double costo;
 
-    public Servicio() {
+    public Servicio() {  
         id = "";
         descripcion = "";
         duracion = 0;

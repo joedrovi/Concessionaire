@@ -1,10 +1,5 @@
 package GUI;
 
-import GUI.VentanaInforme;
-import GUI.VentanaFormularioUsuario;
-import GUI.VentanaCambioContrasenia;
-import GUI.VentanaAdministracionUsuarios;
-import GUI.VentanaAdministracionInventario;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -70,12 +65,18 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
        
        mostarInformacionUsuario(nombreUsuario,cargoUsuario);
        
-       VentanaCambioContrasenia vcc = new VentanaCambioContrasenia();
-       VentanaFormularioUsuario vfu = new VentanaFormularioUsuario();
-       VentanaInforme vi = new VentanaInforme();
-       VentanaAdministracionInventario vai = new VentanaAdministracionInventario(); 
-       VentanaAdministracionUsuarios vau = new VentanaAdministracionUsuarios();       
-       contenedor.add(vai, BorderLayout.CENTER);
+       JPanel panel = new JPanel(new BorderLayout());
+       panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+       
+       GuiAdminServicio guiServicio = new GuiAdminServicio();
+       GuiAdminEmpleado guiEmpleado = new GuiAdminEmpleado();
+       
+       panel.add(guiEmpleado, BorderLayout.CENTER);
+       contenedor.add(panel, BorderLayout.CENTER);
+       
+       setUndecorated(true);
+       getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
+       setDefaultLookAndFeelDecorated(true);
 
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        setSize(800,600);
