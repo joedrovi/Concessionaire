@@ -4,7 +4,7 @@
  */
 package BusinessObject;
 
-public class Car {
+public class Vehiculo {
     
     private String numChasis,numMotor,color,numSerie,marca,anioFabricacion,anioGarantia;
     private double costo;

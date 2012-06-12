@@ -8,6 +8,6 @@ package BusinessObject;
  *
  * @author Chavelo
  */
-public class WorkOrder {
+public class OrdenDeTrabajo {
     
 }

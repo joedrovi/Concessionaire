@@ -8,16 +8,16 @@ package BusinessObject;
  *
  * @author claito
  */
-public class User {
+public class Usuario {
     String login;
     String password;
     
-    public User() {
+    public Usuario() {
         login = "";
         password = "";
     }
 
-    public User(String login, String password) {
+    public Usuario(String login, String password) {
         this.login = login;
         this.password = password;
     }

@@ -5,7 +5,7 @@ package BusinessObject;
  *
  * @author Jose Bernal
  */
-public class Client {
+public class Cliente {
     private String id;
     private String tipoId;
     private String nombre;
