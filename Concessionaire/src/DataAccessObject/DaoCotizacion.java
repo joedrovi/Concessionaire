@@ -8,6 +8,6 @@ package DataAccessObject;
  *
  * @author Jose Bernal
  */
-public class DaoQuotation {
+public class DaoCotizacion {
     
 }

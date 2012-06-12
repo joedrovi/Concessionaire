@@ -8,6 +8,6 @@ package DataAccessObject;
  *
  * @author Chavelo
  */
-public class DaoWorkOrder {
+public class DaoOrdenDeTrabajo {
     
 }

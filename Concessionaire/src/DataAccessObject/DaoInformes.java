@@ -21,7 +21,7 @@ public class DaoInformes {
     }
     
     private void abrirConexion(){
-        conexion=fachada.open();
+        conexion=fachada.abrirConexion();
         
         try{
             instruccion=conexion.createStatement();
@@ -31,7 +31,7 @@ public class DaoInformes {
     }
     
     private void cierraConexion(){
-        fachada.close(conexion);
+        fachada.cerrarConexion(conexion);
     }
     
     public ResultSet consulta(String query){

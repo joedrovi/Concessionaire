@@ -1,8 +1,8 @@
 
 package DataAccessObject;
 
-import BusinessObject.Bill;
-import BusinessObject.Fee;
+import BusinessObject.Factura;
+import BusinessObject.Cuota;
 import Fachada.BDFachada;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,17 +14,17 @@ import java.util.ArrayList;
  *
  * @author Jose Bernal
  */
-public class DaoFee {
-    private BDFachada facade;
+public class DaoCouta {
+    private BDFachada fachada;
     private Connection con;
     private Statement stm;
     
-    public DaoFee() {
-        facade = new BDFachada(); 
+    public DaoCouta() {
+        fachada = new BDFachada(); 
     }
     
     public void open(){
-        con= facade.open();
+        con= fachada.abrirConexion();
         try {
             stm = con.createStatement();
         } catch (SQLException ex) {
@@ -33,7 +33,7 @@ public class DaoFee {
     }
     
     public void close(){
-        facade.close(con);
+        fachada.cerrarConexion(con);
     }
     
     /*Bill bill;
@@ -42,17 +42,17 @@ public class DaoFee {
     double deposit;
     double interest;*/
     
-    public void save(Fee f){
-        Bill b = f.getBill();
+    public void save(Cuota f){
+        Factura b = f.getFactura();
         String query;
         query="INSERT INTO  VALUES ('" +
-                b.getEmp() + "', '" +
-                b.getCar() +  "', '" +
-                b.getClient() + "', "  +
+                b.getEmpleado() + "', '" +
+                b.getVehiculo() +  "', '" +
+                b.getCliente() + "', "  +
                 f.getId() + ", '"  +
-                f.getDate() + "', "  +
-                f.getDeposit() + ", "  +
-                f.getInterest() + ")";
+                f.getFecha() + "', "  +
+                f.getDeposito() + ", "  +
+                f.getInteres() + ")";
         try {
             stm.executeUpdate(query);
         } catch (SQLException ex) {
@@ -60,7 +60,7 @@ public class DaoFee {
         }
     }
     
-    public ArrayList<Fee> search(String nombreCliente){
+    public ArrayList<Cuota> search(String nombreCliente){
         String query = "SELECT * FROM cuota WHERE nombre LIKE '"+nombreCliente+"';";
         ResultSet table;
         try {

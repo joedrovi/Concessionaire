@@ -13,17 +13,17 @@ import java.util.ArrayList;
  *
  * @author Jose Bernal
  */
-public class DaoBill {
-    private BDFachada facade;
+public class DaoFactura {
+    private BDFachada fachada;
     private Connection con;
     private Statement stm;
 
-    public DaoBill() {
-        facade = new BDFachada(); 
+    public DaoFactura() {
+        fachada = new BDFachada(); 
     }
     
     public void open(){
-        con= facade.open();
+        con= fachada.abrirConexion();
         try {
             stm = con.createStatement();
         } catch (SQLException ex) {
@@ -32,10 +32,10 @@ public class DaoBill {
     }
     
     public void close(){
-        facade.close(con);
+        fachada.cerrarConexion(con);
     }
     
-    public void save(Empleado e,Car c,Client cl,String payType,String date){
+    public void save(Empleado e,Vehiculo c,Cliente cl,String payType,String date){
          String query;
         query="INSERT INTO venta VALUES ('" +
                 e.getId() + "', '" +
@@ -51,14 +51,14 @@ public class DaoBill {
         }
     }
     
-    public ArrayList<Bill> search(String nombre){
+    public ArrayList<Factura> search(String nombre){
         
         String query = "SELECT * FROM venta NATURAL JOIN cliente WHERE cliente.nombre LIKE "+nombre+";";
         ResultSet table;
         try {
             table = stm.executeQuery(query);
             
-            ArrayList<Bill> res = new ArrayList<Bill>();
+            ArrayList<Factura> res = new ArrayList<Factura>();
         
             System.out.println("Nombre");
         

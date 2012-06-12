@@ -1,7 +1,7 @@
 package DataAccessObject;
 
 import Fachada.BDFachada;
-import BusinessObject.Car;
+import BusinessObject.Vehiculo;
 import java.sql.*;
 import java.util.*;
 
@@ -9,17 +9,17 @@ import java.util.*;
  *
  * @author Chavelo
  */
-public class DaoCar {
-    private BDFachada facade;
+public class DaoVehiculo {
+    private BDFachada fachada;
     private Connection con;
     private Statement stm;
 
-    public DaoCar() {
-        facade=new BDFachada();
+    public DaoVehiculo() {
+        fachada=new BDFachada();
     }
     
     public void open(){
-        con=facade.open();
+        con=fachada.abrirConexion();
         try{
             stm=con.createStatement();
         }
@@ -29,10 +29,10 @@ public class DaoCar {
     }
     
     public void close(){
-        facade.close(con);
+        fachada.cerrarConexion(con);
     }
     
-    public void save(Car c){
+    public void save(Vehiculo c){
         String querry;
         querry="INSERT INTO vehiculo VALUES ('"+
                 c.getNumSerie()+"','"+
@@ -62,7 +62,7 @@ public class DaoCar {
             System.out.println("Marca");
             
             while(table.next()){
-                Car c=new Car();
+                Vehiculo c=new Vehiculo();
                 c.setNumSerie(table.getString("num_serie"));
                 c.setNumMotor(table.getString("num_motor"));
                 c.setNumChasis(table.getString("num_chasis"));

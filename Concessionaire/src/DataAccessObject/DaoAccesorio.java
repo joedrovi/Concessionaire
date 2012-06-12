@@ -16,17 +16,17 @@ import java.util.ArrayList;
  *
  * @author Chavelo
  */
-public class DaoAccesory {
-    private BDFachada facade;
+public class DaoAccesorio {
+    private BDFachada fachada;
     private Connection con;
     private Statement stm;
     
-    public DaoAccesory() {
-        facade = new BDFachada(); 
+    public DaoAccesorio() {
+        fachada = new BDFachada(); 
     }
     
     public void open(){
-        con= facade.open();
+        con= fachada.abrirConexion();
         try {
             stm = con.createStatement();
         }
@@ -36,7 +36,7 @@ public class DaoAccesory {
     }
     
     public void close(){
-        facade.close(con);
+        fachada.cerrarConexion(con);
     }
     
     public void save(Accesorio a){

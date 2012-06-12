@@ -24,7 +24,7 @@ public class DaoProveedor {
     }
     
     private void abrirConexion() {
-        conexion = fachada.open();
+        conexion = fachada.abrirConexion();
         
         try {
             instruccion = conexion.createStatement();
@@ -35,7 +35,7 @@ public class DaoProveedor {
     }
     
     private void cerrarConexion() {
-        fachada.close(conexion);
+        fachada.cerrarConexion(conexion);
     }
     
     public void insertar(Proveedor p) {
