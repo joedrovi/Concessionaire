@@ -68,10 +68,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
        JPanel panel = new JPanel(new BorderLayout());
        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
        
-       GuiAdminServicio guiServicio = new GuiAdminServicio();
-       GuiAdminEmpleado guiEmpleado = new GuiAdminEmpleado();
+       //GuiAdminServicio guiServicio = new GuiAdminServicio();
+       GuiAdminVehiculo gui = new GuiAdminVehiculo();
        
-       panel.add(guiEmpleado, BorderLayout.CENTER);
+       panel.add(gui, BorderLayout.CENTER);
        contenedor.add(panel, BorderLayout.CENTER);
        
        setUndecorated(true);

@@ -13,19 +13,19 @@ import javax.swing.*;
  *
  * @author claito
  */
-public class GuiFormProveedor extends JDialog implements ActionListener {
-    private Container contenedor;
+public class GuiFormProveedor extends JDialog {
+    protected Container contenedor;
     
-    private JTextField txtNit;
-    private JTextField txtRazonSocial;
-    private JTextField txtTelefono;
-    private JTextField txtDireccion;
-    private JTextField txtEmail;
+    protected JTextField txtNit;
+    protected JTextField txtRazonSocial;
+    protected JTextField txtTelefono;
+    protected JTextField txtDireccion;
+    protected JTextField txtEmail;
     
-    private JButton btnAceptar;
-    private JButton btnRestaurar;
+    protected JButton btnAceptar;
+    protected JButton btnRestaurar;
     
-    private ControladorProveedor controlador;
+    protected ControladorProveedor controlador;
 
     public GuiFormProveedor() {
         setTitle("Proveedor");
@@ -77,11 +77,9 @@ public class GuiFormProveedor extends JDialog implements ActionListener {
         JPanel panelBtn = new JPanel(new GridLayout(1, 2, 10, 10));
         
         btnRestaurar = new JButton("Restaurar");
-        btnRestaurar.addActionListener(this);
         panelBtn.add(btnRestaurar);
         
         btnAceptar = new JButton("Aceptar");
-        btnAceptar.addActionListener(this);
         panelBtn.add(btnAceptar);
         
         panelIntermedio.add(panelBtn);        
@@ -95,48 +93,6 @@ public class GuiFormProveedor extends JDialog implements ActionListener {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);    
-    }    
+    }        
     
-    private void restaurar() {
-        txtNit.setText("");
-        txtRazonSocial.setText("");
-        txtTelefono.setText("");
-        txtDireccion.setText("");
-        txtEmail.setText("");
-    }
-    
-    private boolean  insertar() {
-        String nit = txtNit.getText();
-        String razonSocial = txtRazonSocial.getText();
-        String telefono = txtTelefono.getText();
-        String direccion = txtDireccion.getText();
-        String email = txtEmail.getText();
-        
-        if( nit.isEmpty() || razonSocial.isEmpty() || telefono.isEmpty() || direccion.isEmpty() || email.isEmpty() ) {
-            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Insertar proveedor - Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        if( controlador.existe(nit) ) {
-            JOptionPane.showMessageDialog(this, "Este nit ya se encuentra registrado.", "Insertar proveedor - Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }       
-        
-        controlador.insertar(nit, razonSocial, telefono, direccion, email);
-            
-        JOptionPane.showMessageDialog(this, "Se ha almacenado un nuevo proveedor.", "Insertar proveedor", JOptionPane.INFORMATION_MESSAGE);
-        return true;        
-        
-    }
-    
-    public void actionPerformed(ActionEvent e) {
-        if( e.getSource() == btnRestaurar ) {
-            restaurar();
-        }
-        
-        if( e.getSource() == btnAceptar ) {
-            insertar();
-            dispose();
-        }
-    }
 }
