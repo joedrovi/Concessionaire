@@ -5,7 +5,7 @@
 package Controlador;
 
 import BusinessObject.Proveedor;
-import DAO.DaoProveedor;
+import DataAccessObject.DaoProveedor;
 import java.util.ArrayList;
 
 /**
